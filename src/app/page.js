@@ -1,15 +1,19 @@
 import Maincomponent from './(components)/maincomponent';
-
-export default function Home() {
+async function getData(){
+  const res = await fetch("https://d.lazaristcatholicschool.org/items", { cache:'no-store' })
+  const data = await res.json()
+  // console.log(data)
+  return data
+}
+export default async  function  Home() {
+  const poo = await getData()
   return (
     <div className="flex w-full p-6 h-screen bg-gradient-to-b from-gray-900 to-black flex-col overflow-x-hidden overflow-y-scroll space-y-6">
-      {/* <p className="text-5xl font-thin text-center mt-5 text-white dark:text-white underline">Just Look.</p> */}
+       {poo.map((each) => (
+      <Maincomponent className='' name={each.name} image={`https://d.lazaristcatholicschool.org${each.image}`} link={each.id} />
+                    
+                  ))}
       
-      <Maincomponent className='' name='Blum airdrop' image='/images/download.png' link='id' />
-      <Maincomponent className='' name='test' image='/images/download.png' link='id' />
-      <Maincomponent className='' name='test' image='/images/download.png' link='id'/>
-      <Maincomponent className='' name='test' image='/images/download.png' link='id'/>
-      <Maincomponent className='' name='test' image='/images/download.png'  link='id'/>
      
     </div>
   );
