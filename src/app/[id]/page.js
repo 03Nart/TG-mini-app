@@ -2,16 +2,7 @@
 'use client';
 import { useRouter,redirect } from 'next/navigation';
 import { BackButton } from '@vkruglikov/react-telegram-web-app';
-
 import Head from 'next/head';
-const Criteria = [
-  "Complete the registration form",
-  "Verify your email",
-  "Participate in the airdrop event",
-  "Follow the social media accounts",
-  "Join the Telegram group"
-];
-
 
 async function getData(wildcard) {
  
@@ -24,12 +15,21 @@ async function getData(wildcard) {
   return data;
 }
 
+ async function Rst(listss) {
+  const str = listss;
+  const cleanedStr = str.replace(/^\[|\]$/g, '');
+  const resultArray = cleanedStr.split(',').map(item => item.trim());
+  return resultArray;
+}
+
 export default async function Page({ params }) {
   
   const router = useRouter();
 
   
   const poo =  await getData(params.id);
+  const Criteria = await Rst(poo.qualification)
+  console.log(Criteria)
 
   const handleButtonClick = () => {
     'use client';
