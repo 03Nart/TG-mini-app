@@ -1,6 +1,9 @@
 
-import Head from 'next/head'; // Assuming you are using Next.js for the project
+'use client';
+import { useRouter,redirect } from 'next/navigation';
+import { BackButton } from '@vkruglikov/react-telegram-web-app';
 
+import Head from 'next/head';
 const Criteria = [
   "Complete the registration form",
   "Verify your email",
@@ -10,30 +13,65 @@ const Criteria = [
 ];
 
 
-async function getData(wildcard){
-  const res = await fetch(`https://d.lazaristcatholicschool.org/${wildcard}`, { cache:'no-store' })
-  const data = await res.json()
-  console.log(wildcard)
-  return data
+async function getData(wildcard) {
+ 
+ 
+  const res = await fetch(`https://d.lazaristcatholicschool.org/${wildcard}`, { cache: 'no-store' });
+  if (!res.ok) {
+    throw new Error('Failed to fetch data');
+  }
+  const data = await res.json();
+  return data;
+}
 
-} 
+export default async function Page({ params }) {
+  
+  const router = useRouter();
 
-async function Page({ params }) {
-   console.log(params.id)
-   console.log('props')
-  const poo = await getData(params.id)
-  console.log(poo)
+  
+  const poo =  await getData(params.id);
 
+  const handleButtonClick = () => {
+    'use client';
+     
+    router.push('/'); 
+  };
+
+  
+
+  
+
+  
+
+  
+
+  
   return (
+    
     <>
       <Head>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
       </Head>
+
+
       <div className="flex flex-col items-center min-h-screen w-full bg-gradient-to-b from-gray-900 to-black font-poppins">
-        <p className="text-6xl font-extrabold text-center mt-10 text-white underline w-full">{poo.name}</p>
+
+       
+        {/* <button 
+          className="bg-yellow-500 text-white px-6 py-3 rounded-full mt-4 mb-4 hover:bg-yellow-400 transition-all transform hover:scale-105" 
+          onClick={handleButtonClick}
+
+        >
+          Back to Home
+        </button> */}
+        <BackButton onClick={handleButtonClick} />;
+
+
+
+        <p className="text-6xl font-extrabold text-center mt-4 text-white underline w-full">{poo.name}</p>
         
         <p className="text-white mt-8 p-6 bg-opacity-50 bg-gray-800 rounded-lg shadow-md max-w-3xl text-center transition-transform transform hover:scale-105">
-        {poo.overview}
+          {poo.overview}
         </p>
 
         <div className="mt-6 bg-gray-800 bg-opacity-60 p-6 rounded-lg shadow-lg max-w-xl w-full transition-transform transform hover:scale-105">
@@ -69,4 +107,4 @@ async function Page({ params }) {
   );
 }
 
-export default Page;
+
