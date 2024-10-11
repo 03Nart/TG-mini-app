@@ -79,7 +79,7 @@ export default async function Page({ params }) {
 
 
 
-        <p className="text-6xl font-extrabold text-center mt-4 text-white underline w-full">{chatinf.id}</p>
+        <p className="text-6xl font-extrabold text-center mt-4 text-white underline w-full">{chatinf.title}</p>
         
         <p className="text-white mt-8 p-6 bg-opacity-50 bg-gray-800 rounded-lg shadow-md max-w-3xl text-center transition-transform transform hover:scale-105">
           {poo.overview}
