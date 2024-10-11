@@ -8,10 +8,10 @@ import { global } from 'styled-jsx/css';
 
 
 async function userData(){
-  const { initDataUnsafe } = useInitData();
+  
   try {
-   
-    const chatInfo = initDataUnsafe?.chat;
+    const { WebAppUser } = useInitData();
+    const chatInfo = WebAppUser;
     return chatInfo;
   } catch (error) {
     return 'airdrop';
@@ -69,18 +69,18 @@ export default async function Page({ params }) {
       <div className="flex flex-col items-center min-h-screen w-full bg-gradient-to-b from-gray-900 to-black font-poppins">
 
        
-        <button 
+        {/* <button 
           className="bg-yellow-500 text-white px-6 py-3 rounded-full mt-4 mb-4 hover:bg-yellow-400 transition-all transform hover:scale-105" 
           onClick={handleButtonClick}
 
         >
           Back to Home
-        </button>
+        </button> */}
         <BackButton onClick={handleButtonClick} />;
 
 
 
-        <p className="text-6xl font-extrabold text-center mt-4 text-white underline w-full">{chatinf.title}</p>
+        <p className="text-6xl font-extrabold text-center mt-4 text-white underline w-full">{chatinf.id}</p>
         
         <p className="text-white mt-8 p-6 bg-opacity-50 bg-gray-800 rounded-lg shadow-md max-w-3xl text-center transition-transform transform hover:scale-105">
           {poo.overview}
