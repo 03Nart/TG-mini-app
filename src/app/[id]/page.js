@@ -8,8 +8,9 @@ import { global } from 'styled-jsx/css';
 
 
 async function userData(){
+  const { initDataUnsafe } = useInitData();
   try {
-    const { initDataUnsafe } = useInitData();
+   
     const chatInfo = initDataUnsafe?.chat;
     return chatInfo;
   } catch (error) {
@@ -68,13 +69,13 @@ export default async function Page({ params }) {
       <div className="flex flex-col items-center min-h-screen w-full bg-gradient-to-b from-gray-900 to-black font-poppins">
 
        
-        {/* <button 
+        <button 
           className="bg-yellow-500 text-white px-6 py-3 rounded-full mt-4 mb-4 hover:bg-yellow-400 transition-all transform hover:scale-105" 
           onClick={handleButtonClick}
 
         >
           Back to Home
-        </button> */}
+        </button>
         <BackButton onClick={handleButtonClick} />;
 
 
