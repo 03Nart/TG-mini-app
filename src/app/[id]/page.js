@@ -1,23 +1,19 @@
 
 'use client';
 import { useRouter,redirect } from 'next/navigation';
-import { BackButton,useInitData  } from '@vkruglikov/react-telegram-web-app';
+import { BackButton,  } from '@vkruglikov/react-telegram-web-app';
 import Head from 'next/head';
 import { global } from 'styled-jsx/css';
 
+import { useEffect, useState } from 'react'
 
 
-async function userData(){
-  
-  try {
-    const   {initDataUnsafe} = await useInitData();
-    const chatInfo = await initDataUnsafe?.user?.id;
-    return  chatInfo;
-  } catch (error) {
-    return 'airdrop';
-  }
 
-}
+
+
+
+
+
 async function getData(wildcard) {
    
   
@@ -42,8 +38,19 @@ export default async function Page({ params }) {
     const router = useRouter();
     const poo =  await getData(params.id);
     const Criteria = await Rst(poo.qualification)
-    const chatinf = await userData()
-    console.log(Criteria)
+    const chatinf = 'beta'
+   
+
+    const [userData, setUserData] = useState(null);
+
+    useEffect(() => {
+      if (window.Telegram.WebApp.initDataUnsafe.user) {
+        setUserData(window.Telegram.WebApp.initDataUnsafe.user);
+      }
+    }, []);
+
+
+
     const handleButtonClick = () => {
       'use client';
       router.push('/'); 
@@ -51,13 +58,6 @@ export default async function Page({ params }) {
 
   
 
-  
-
-  
-
-  
-
-  
   return (
     
     <>
@@ -80,7 +80,7 @@ export default async function Page({ params }) {
 
 
 
-        <p className="text-6xl font-extrabold text-center mt-4 text-white underline w-full">{chatinf}</p>
+        <p className="text-6xl font-extrabold text-center mt-4 text-white underline w-full">{userData.first_name}</p>
         
         <p className="text-white mt-8 p-6 bg-opacity-50 bg-gray-800 rounded-lg shadow-md max-w-3xl text-center transition-transform transform hover:scale-105">
           {poo.overview}
