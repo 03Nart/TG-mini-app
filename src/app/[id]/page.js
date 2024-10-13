@@ -10,9 +10,9 @@ import { global } from 'styled-jsx/css';
 async function userData(){
   
   try {
-    const { WebAppUser } = useInitData();
-    const chatInfo = WebAppUser;
-    return chatInfo;
+    const [ initDataUnsafe  ] = await useInitData();
+    const chatInfo = await initDataunsafe.user.id;
+    return await  chatInfo;
   } catch (error) {
     return 'airdrop';
   }
