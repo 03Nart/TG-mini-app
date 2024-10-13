@@ -60,7 +60,7 @@ export default function Page({ params }) {
 
         {userData ? (
           <p className="text-6xl font-extrabold text-center mt-4 text-white underline w-full">
-            {userData.first_name}
+            {userData.id}
           </p>
         ) : (
           <p>Loading user data...</p>
