@@ -4,6 +4,7 @@ import { useRouter,redirect } from 'next/navigation';
 import { BackButton,  } from '@vkruglikov/react-telegram-web-app';
 import Head from 'next/head';
 import { global } from 'styled-jsx/css';
+import WebApp from '@twa-dev/sdk'
 
 import { useEffect, useState } from 'react'
 
