@@ -5,7 +5,7 @@ import { BackButton } from '@vkruglikov/react-telegram-web-app';
 
 // Function to fetch data from the API
 async function getData() {
-  const res = await fetch("https://d.lazaristcatholicschool.org/items", { cache: 'no-store' });
+  const res = await fetch("https://d.lazaristcatholicschool.org/items/", { cache: 'no-store' });
   const data = await res.json();
   return data;
 }

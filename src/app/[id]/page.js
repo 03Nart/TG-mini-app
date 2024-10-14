@@ -5,7 +5,7 @@ import Head from 'next/head';
 import { useEffect, useState } from 'react';
 
 async function getData(wildcard) {
-  const res = await fetch(`https://d.lazaristcatholicschool.org/${wildcard}`, { cache: 'no-store' });
+  const res = await fetch(`https://d.lazaristcatholicschool.org/${wildcard}/`, { cache: 'no-store' });
   if (!res.ok) {
     throw new Error('Failed to fetch data');
   }
@@ -58,13 +58,11 @@ export default function Page({ params }) {
       <div className="flex flex-col items-center min-h-screen w-full bg-gradient-to-b from-gray-900 to-black font-poppins">
         <BackButton onClick={handleButtonClick} />
 
-        {userData ? (
+    
           <p className="text-6xl font-extrabold text-center mt-4 text-white underline w-full">
-            {userData.id}
+           {poo.name}
           </p>
-        ) : (
-          <p>Loading user data...</p>
-        )}
+     
 
         {poo ? (
           <>
