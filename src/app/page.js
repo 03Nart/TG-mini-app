@@ -54,6 +54,7 @@ export default function Home() {
           name={each.name} 
           image={`https://d.lazaristcatholicschool.org${each.image}`} 
           link={each.id} 
+          verified={each.verified}
         />
       ))}
     </div>

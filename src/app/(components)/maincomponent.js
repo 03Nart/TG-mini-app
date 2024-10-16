@@ -19,9 +19,11 @@ const Maincomponent = (params) => {
       <div className="flex flex-col items-center justify-center  p-4 leading-normal">
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-white text-center">{params.name}</h5>
       </div>
-
-      <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Verified</span>
-
+      {params.verified && (
+        <span className="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">
+          Verified
+        </span>
+      )}
     </a>
   );
 };
