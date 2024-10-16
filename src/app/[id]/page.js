@@ -3,6 +3,7 @@ import { useRouter } from 'next/navigation';
 import { BackButton } from '@vkruglikov/react-telegram-web-app';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
+var converter = require('number-to-words');
 
 async function getData(wildcard) {
   const res = await fetch(`https://d.lazaristcatholicschool.org/${wildcard}/`, { cache: 'no-store' });
@@ -73,23 +74,23 @@ export default function Page({ params }) {
           {poo.name}
         </p>
 
-        <p className="text-white mt-8 p-6 bg-opacity-50 bg-gray-800 rounded-lg shadow-md max-w-3xl text-center">
+        <p className="text-white mt-8 p-6  rounded-lg  max-w-3xl text-center">
           {poo.overview}
         </p>
 
-        <div className="mt-6 bg-gray-800 bg-opacity-60 p-6 rounded-lg shadow-lg max-w-xl w-full">
-          <h1 className="text-yellow-500 text-center text-4xl mb-4">Airdrop Criteria</h1>
-          <ul className="space-y-2">
+        <div className="mt-6   p-6 rounded-lg shadow-lg max-w-xl w-full">
+          <h1 className="text-white text-2xl mb-4 text-left">Step by Step guide:</h1>
+          <ul className="space-y-2 text-center">
             {criteria.map((item, index) => (
-              <li key={index} className="text-lg text-white">
-                <span className="font-bold text-yellow-300">{index + 1}.</span>
+              <li key={index} className="text-lg text-white ">
+                <span className="font-bold text-white">{index + 1}.</span>
                 {item}
               </li>
             ))}
           </ul>
         </div>
 
-        <div className="mt-8 text-center max-w-xl w-full bg-gray-900 p-4 rounded-lg shadow-lg">
+        <div className="mt-8 text-center max-w-xl w-full p-4 rounded-lg shadow-lg">
           <h1 className="text-white text-lg">
             Listing Date: <span className="font-semibold text-yellow-300">{poo.listing_date}</span>
           </h1>
@@ -98,15 +99,15 @@ export default function Page({ params }) {
           </h1>
         </div>
 
-        <div className="mt-8 text-center max-w-xl w-full bg-gray-900 p-4 rounded-lg shadow-lg">
+        <div className="mt-8 text-center max-w-xl w-full   p-4 rounded-lg shadow-lg">
           <h1 className="text-white text-lg">
             WhitePaper: <a href={poo.whitepaper} className="underline text-yellow-300">{poo.whitepaper}</a>
           </h1>
           <h1 className="text-white text-lg">
-            Total Supply: <span className="font-semibold text-yellow-300">{poo.total_supply}</span>
+            Total Supply: <span className="font-semibold text-yellow-300">{converter.toWords(poo.total_supply).toUpperCase()}</span>
           </h1>
           <h1 className="text-white text-lg">
-            Supply For The Airdrop: <span className="font-semibold text-yellow-300">{poo.supply_for_airdrop}</span>
+            Supply For The Airdrop: <span className="font-semibold text-yellow-300">{converter.toWords(poo.supply_for_airdrop).toUpperCase()}</span>
           </h1>
         </div>
 

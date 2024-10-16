@@ -2,6 +2,8 @@
 import Maincomponent from './(components)/maincomponent';
 import { useState, useEffect } from 'react';
 import { BackButton } from '@vkruglikov/react-telegram-web-app';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitter, faTelegram } from '@fortawesome/free-brands-svg-icons';
 
 // Function to fetch data from the API
 async function getData() {
@@ -34,7 +36,7 @@ async function postTelegramId(telegram_id) {
 
 export default function Home() {
   const [poo, setPoo] = useState([]);
-  
+
   useEffect(() => {
     getData().then(setPoo).catch(console.error);
     const userData = window.Telegram?.WebApp?.initDataUnsafe?.user;
@@ -47,6 +49,16 @@ export default function Home() {
 
   return (
     <div className="flex w-full p-6 h-screen bg-gradient-to-b from-gray-900 to-black flex-col overflow-x-hidden overflow-y-scroll space-y-6">
+      
+      <div className="flex justify-center items-center space-x-10 mb-4">
+        <a href="https://x.com/Just_Gleam" target="_blank" rel="noopener noreferrer" className="text-white">
+          <FontAwesomeIcon icon={faTwitter} size="2x" />
+        </a>
+        <a href="https://t.me/justgleam" target="_blank" rel="noopener noreferrer" className="text-white">
+          <FontAwesomeIcon icon={faTelegram} size="2x" />
+        </a>
+      </div>
+
       {poo.map((each) => (
         <Maincomponent 
           key={each.id} 
