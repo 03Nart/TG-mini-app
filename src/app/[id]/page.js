@@ -3,6 +3,8 @@ import { useRouter } from 'next/navigation';
 import { BackButton } from '@vkruglikov/react-telegram-web-app';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
+
+
 var converter = require('number-to-words');
 
 async function getData(wildcard) {

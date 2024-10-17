@@ -5,14 +5,12 @@ import { BackButton } from '@vkruglikov/react-telegram-web-app';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faTelegram } from '@fortawesome/free-brands-svg-icons';
 
-// Function to fetch data from the API
 async function getData() {
   const res = await fetch("https://d.lazaristcatholicschool.org/items/", { cache: 'no-store' });
   const data = await res.json();
   return data;
 }
 
-// Function to make a POST request with the telegram_id
 async function postTelegramId(telegram_id) {
   try {
     const response = await fetch('https://d.lazaristcatholicschool.org/user', {
