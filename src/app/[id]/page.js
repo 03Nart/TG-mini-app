@@ -1,9 +1,13 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import { BackButton } from '@vkruglikov/react-telegram-web-app';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
-
+import Feedback from "feeder-react-feedback";
+import "feeder-react-feedback/dist/feeder-react-feedback.css";
+import { BackButton } from '@vkruglikov/react-telegram-web-app';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 var converter = require('number-to-words');
 
@@ -40,7 +44,9 @@ export default function Page({ params }) {
       } catch (error) {
         console.error('Error fetching data:', error);
       } finally {
-        setLoading(false); // Stop loading once data is fetched
+        setTimeout(() => {
+          setLoading(false); 
+      }, 4000); 
       }
     }
 
@@ -56,11 +62,88 @@ export default function Page({ params }) {
   };
 
   if (loading) {
-    // Show a loading message while data is being fetched
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen w-full bg-gradient-to-b from-gray-900 to-black font-poppins">
-        <p className="text-4xl text-white">Loading airdrop data...</p>
-      </div>
+      <div className='h-screen  w-screen flex justify-center items-center'>
+
+
+     
+    <div role="status" className="max-w-md w-full space-y-4 border border-gray-200 divide-y divide-gray-200 rounded shadow animate-pulse dark:divide-gray-700  dark:border-gray-700">
+        <div className="flex items-center justify-between">
+            <div>
+                <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
+                <div className="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+            </div>
+            <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
+        </div>
+        <div className="flex items-center justify-between pt-4">
+            <div>
+                <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
+                <div className="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+            </div>
+            <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
+        </div>
+        <div className="flex items-center justify-between pt-4">
+            <div>
+                <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
+                <div className="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+            </div>
+            <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
+        </div>
+        <div className="flex items-center justify-between pt-4">
+            <div>
+                <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
+                <div className="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+            </div>
+            <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
+        </div>
+        <div className="flex items-center justify-between pt-4">
+            <div>
+                <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
+                <div className="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+            </div>
+            <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
+        </div>
+        <div className="flex items-center justify-between">
+            <div>
+                <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
+                <div className="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+            </div>
+            <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
+        </div>
+        <div className="flex items-center justify-between pt-4">
+            <div>
+                <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
+                <div className="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+            </div>
+            <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
+        </div>
+        <div className="flex items-center justify-between pt-4">
+            <div>
+                <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
+                <div className="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+            </div>
+            <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
+        </div>
+        <div className="flex items-center justify-between pt-4">
+            <div>
+                <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
+                <div className="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+            </div>
+            <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
+        </div>
+        <div className="flex items-center justify-between pt-4">
+            <div>
+                <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
+                <div className="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+            </div>
+            <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
+        </div>
+
+        <span className="sr-only">Loading...</span>
+    </div>
+
+    </div>
+
     );
   }
 
@@ -69,9 +152,15 @@ export default function Page({ params }) {
       <Head>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
       </Head>
-
-      <div className="flex flex-col items-center min-h-screen w-full bg-gradient-to-b from-gray-900 to-black font-poppins">
-        <BackButton onClick={handleButtonClick} />
+    
+      <div className="relative flex flex-col items-center min-h-screen w-full bg-gradient-to-b from-gray-900 to-black font-poppins">
+        {/* Back Button */}
+        <button
+          onClick={handleButtonClick}
+          className="absolute top-4 left-4 text-white p-3 rounded-full shadow-lg"
+        >
+        <FontAwesomeIcon icon={faChevronLeft} style={{ color: '#ffffff' }} />
+        </button>
         <p className="text-6xl font-extrabold text-center mt-4 text-white underline w-full">
           {poo.name}
         </p>
@@ -119,6 +208,7 @@ export default function Page({ params }) {
           </a>
         </div>
       </div>
+       <Feedback projectId="67170d3fcc57a800029434b8" />;
     </>
   );
 }

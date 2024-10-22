@@ -4,6 +4,9 @@ import { useState, useEffect } from 'react';
 import { BackButton } from '@vkruglikov/react-telegram-web-app';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faTelegram } from '@fortawesome/free-brands-svg-icons';
+import Feedback from "feeder-react-feedback";
+import "feeder-react-feedback/dist/feeder-react-feedback.css";
+
 
 async function getData() {
   const res = await fetch("https://d.lazaristcatholicschool.org/items/", { cache: 'no-store' });
@@ -56,7 +59,7 @@ export default function Home() {
           <FontAwesomeIcon icon={faTelegram} size="2x" />
         </a>
       </div>
-
+      <Feedback projectId="67170d3fcc57a800029434b8" />;
       {poo.map((each) => (
         <Maincomponent 
           key={each.id} 
