@@ -208,8 +208,9 @@ export default function Page({ params }) {
             CLICK HERE TO START THE AIRDROP
           </a>
         </div>
+        <Feedback projectId="67170d3fcc57a800029434b8" />;
+
       </div>
-       <Feedback projectId="67170d3fcc57a800029434b8" />;
     </>
   );
 }
