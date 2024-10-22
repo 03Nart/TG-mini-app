@@ -8,6 +8,7 @@ import Feedback from "feeder-react-feedback";
 import "feeder-react-feedback/dist/feeder-react-feedback.css";
 import { BackButton } from '@vkruglikov/react-telegram-web-app';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import WebApp from '@twa-dev/sdk'
 
 var converter = require('number-to-words');
 

@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faTelegram } from '@fortawesome/free-brands-svg-icons';
 import Feedback from "feeder-react-feedback";
 import "feeder-react-feedback/dist/feeder-react-feedback.css";
+import WebApp from '@twa-dev/sdk'
 
 
 async function getData() {
