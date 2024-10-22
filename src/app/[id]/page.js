@@ -4,12 +4,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
-import Feedback from "feeder-react-feedback";
+
 import "feeder-react-feedback/dist/feeder-react-feedback.css";
 import { BackButton } from '@vkruglikov/react-telegram-web-app';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import WebApp from '@twa-dev/sdk'
+import dynamic from 'next/dynamic';
 
+const Feedback = dynamic(() => import("feeder-react-feedback"), {
+  ssr: false, // Disable server-side rendering
+});
 var converter = require('number-to-words');
 
 async function getData(wildcard) {

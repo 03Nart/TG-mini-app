@@ -4,7 +4,11 @@ import { useState, useEffect } from 'react';
 import { BackButton } from '@vkruglikov/react-telegram-web-app';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faTelegram } from '@fortawesome/free-brands-svg-icons';
-import Feedback from "feeder-react-feedback";
+import dynamic from 'next/dynamic';
+
+const Feedback = dynamic(() => import("feeder-react-feedback"), {
+  ssr: false, // Disable server-side rendering
+});
 import "feeder-react-feedback/dist/feeder-react-feedback.css";
 import WebApp from '@twa-dev/sdk'
 
