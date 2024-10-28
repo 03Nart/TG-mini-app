@@ -1,19 +1,15 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
+import WebApp from '@twa-dev/sdk';
 
 import "feeder-react-feedback/dist/feeder-react-feedback.css";
-import { BackButton } from '@vkruglikov/react-telegram-web-app';
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
-import WebApp from '@twa-dev/sdk'
-import dynamic from 'next/dynamic';
 
-const Feedback = dynamic(() => import("feeder-react-feedback"), {
-  ssr: false, // Disable server-side rendering
-});
+const Feedback = dynamic(() => import("feeder-react-feedback"), { ssr: false });
 var converter = require('number-to-words');
 
 async function getData(wildcard) {
@@ -37,7 +33,7 @@ export default function Page({ params }) {
   const [poo, setPoo] = useState(null);
   const [criteria, setCriteria] = useState([]);
   const [userData, setUserData] = useState(null);
-  const [loading, setLoading] = useState(true); // Add loading state
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
@@ -51,7 +47,7 @@ export default function Page({ params }) {
       } finally {
         setTimeout(() => {
           setLoading(false); 
-      }, 4000); 
+      }, 2); 
       }
     }
 
@@ -68,87 +64,19 @@ export default function Page({ params }) {
 
   if (loading) {
     return (
-      <div className='h-screen  w-screen flex justify-center items-center'>
-
-
-     
-    <div role="status" className="max-w-md w-full space-y-4 border border-gray-200 divide-y divide-gray-200 rounded shadow animate-pulse dark:divide-gray-700  dark:border-gray-700">
-        <div className="flex items-center justify-between">
-            <div>
-                <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
-                <div className="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+      <div className='h-screen w-screen flex justify-center items-center bg-black'>
+        <div role="status" className="animate-pulse max-w-sm w-full p-4 space-y-4 border border-gray-700 divide-y divide-gray-700 rounded-lg shadow-lg dark:divide-gray-600">
+          {[...Array(5)].map((_, index) => (
+            <div key={index} className="flex items-center justify-between pt-4">
+              <div>
+                <div className="h-2.5 bg-gray-600 rounded-full w-24 mb-2.5"></div>
+                <div className="w-32 h-2 bg-gray-500 rounded-full"></div>
+              </div>
+              <div className="h-2.5 bg-gray-600 rounded-full w-12"></div>
             </div>
-            <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
+          ))}
         </div>
-        <div className="flex items-center justify-between pt-4">
-            <div>
-                <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
-                <div className="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
-            </div>
-            <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
-        </div>
-        <div className="flex items-center justify-between pt-4">
-            <div>
-                <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
-                <div className="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
-            </div>
-            <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
-        </div>
-        <div className="flex items-center justify-between pt-4">
-            <div>
-                <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
-                <div className="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
-            </div>
-            <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
-        </div>
-        <div className="flex items-center justify-between pt-4">
-            <div>
-                <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
-                <div className="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
-            </div>
-            <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
-        </div>
-        <div className="flex items-center justify-between">
-            <div>
-                <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
-                <div className="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
-            </div>
-            <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
-        </div>
-        <div className="flex items-center justify-between pt-4">
-            <div>
-                <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
-                <div className="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
-            </div>
-            <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
-        </div>
-        <div className="flex items-center justify-between pt-4">
-            <div>
-                <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
-                <div className="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
-            </div>
-            <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
-        </div>
-        <div className="flex items-center justify-between pt-4">
-            <div>
-                <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
-                <div className="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
-            </div>
-            <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
-        </div>
-        <div className="flex items-center justify-between pt-4">
-            <div>
-                <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
-                <div className="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
-            </div>
-            <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
-        </div>
-
-        <span className="sr-only">Loading...</span>
-    </div>
-
-    </div>
-
+      </div>
     );
   }
 
@@ -158,62 +86,62 @@ export default function Page({ params }) {
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
       </Head>
     
-      <div className="relative flex flex-col items-center min-h-screen w-full bg-gradient-to-b from-gray-900 to-black font-poppins">
+      <div className="relative flex flex-col items-center min-h-screen w-full bg-gradient-to-b from-gray-900 to-black font-poppins px-4 text-white">
         {/* Back Button */}
         <button
           onClick={handleButtonClick}
-          className="absolute top-4 left-4 text-white p-3 rounded-full shadow-lg"
+          className="absolute top-4 left-4 p-2 text-white bg-gray-700 rounded-full shadow-lg focus:outline-none"
         >
-        <FontAwesomeIcon icon={faChevronLeft} style={{ color: '#ffffff' }} />
+          <FontAwesomeIcon icon={faChevronLeft} style={{ color: '#ffffff' }} />
         </button>
-        <p className="text-6xl font-extrabold text-center mt-4 text-white underline w-full">
+
+        {/* Title */}
+        <p className="text-4xl font-extrabold text-center mt-16 md:text-5xl lg:text-6xl underline w-full">
           {poo.name}
         </p>
 
-        <p className="text-white mt-8 p-6  rounded-lg  max-w-3xl text-center">
+        {/* Overview */}
+        <p className="text-center text-sm md:text-base mt-4 mb-8 px-4 max-w-lg">
           {poo.overview}
         </p>
 
-        <div className="mt-6   p-6 rounded-lg shadow-lg max-w-xl w-full">
-          <h1 className="text-white text-2xl mb-4 text-left">Step by Step guide:</h1>
-          <ul className="space-y-2 text-center">
+        {/* Step by Step Guide */}
+        <div className="mt-6 p-4 bg-gray-800 rounded-lg shadow-md max-w-md w-full">
+          <h1 className="text-xl font-semibold mb-4">Step-by-Step Guide:</h1>
+          <ul className="space-y-2">
             {criteria.map((item, index) => (
-              <li key={index} className="text-lg text-white ">
-                <span className="font-bold text-white">{index + 1}.</span>
-                {item}
+              <li key={index} className="flex items-start space-x-2">
+                <span className="text-yellow-300 font-bold">{index + 1}.</span>
+                <p>{item}</p>
               </li>
             ))}
           </ul>
         </div>
 
-        <div className="mt-8 text-center max-w-xl w-full p-4 rounded-lg shadow-lg">
-          <h1 className="text-white text-lg">
-            Listing Date: <span className="font-semibold text-yellow-300">{poo.listing_date}</span>
-          </h1>
-          <h1 className="text-white text-lg">
-            Farming Ending Date: <span className="font-semibold text-yellow-300">{poo.farming_ending_date}</span>
-          </h1>
+        {/* Dates Section */}
+        <div className="mt-6 text-center max-w-md w-full p-4 bg-gray-800 rounded-lg shadow-md space-y-2">
+          <h1>Listing Date: <span className="font-semibold text-yellow-300">{poo.listing_date}</span></h1>
+          <h1>Farming Ending Date: <span className="font-semibold text-yellow-300">{poo.farming_ending_date}</span></h1>
         </div>
 
-        <div className="mt-8 text-center max-w-xl w-full   p-4 rounded-lg shadow-lg">
-          <h1 className="text-white text-lg">
-            WhitePaper: <a href={poo.whitepaper} className="underline text-yellow-300">{poo.whitepaper}</a>
-          </h1>
-          <h1 className="text-white text-lg">
-            Total Supply: <span className="font-semibold text-yellow-300">{converter.toWords(poo.total_supply).toUpperCase()}</span>
-          </h1>
-          <h1 className="text-white text-lg">
-            Supply For The Airdrop: <span className="font-semibold text-yellow-300">{converter.toWords(poo.supply_for_airdrop).toUpperCase()}</span>
-          </h1>
+        {/* Additional Info Section */}
+        <div className="mt-6 text-center max-w-md w-full p-4 bg-gray-800 rounded-lg shadow-md space-y-2">
+          <h1>WhitePaper: <a href={poo.whitepaper} className="underline text-yellow-300">View Whitepaper</a></h1>
+          <h1>Total Supply: <span className="font-semibold text-yellow-300">{converter.toWords(poo.total_supply).toUpperCase()}</span></h1>
+          <h1>Supply For The Airdrop: <span className="font-semibold text-yellow-300">{converter.toWords(poo.supply_for_airdrop).toUpperCase()}</span></h1>
         </div>
 
-        <div className="mt-8 mb-10">
-          <a href={poo.starting_link} className="text-white bg-yellow-500 px-8 py-4 rounded-full">
+        {/* Start Button */}
+        <div className="mt-6 mb-10">
+          <a href={poo.starting_link} className="text-sm md:text-base text-center text-black bg-yellow-400 px-6 py-3 rounded-full shadow-lg font-semibold">
             CLICK HERE TO START THE AIRDROP
           </a>
         </div>
-        <Feedback projectId="67170d3fcc57a800029434b8" />;
 
+        {/* Feedback */}
+        <div className="mt-4 w-full max-w-md bg-gray-700 p-2 rounded-lg">
+          <Feedback projectId="67170d3fcc57a800029434b8" className='bg-white' />
+        </div>
       </div>
     </>
   );

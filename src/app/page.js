@@ -54,16 +54,9 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex w-full p-6 h-screen bg-gradient-to-b from-gray-900 to-black flex-col overflow-x-hidden overflow-y-scroll space-y-6">
+    <div className="flex w-full p-1 h-screen bg-gradient-to-b from-gray-900 to-black flex-col overflow-x-hidden overflow-y-scroll space-y-5">
       
-      <div className="flex justify-center items-center space-x-10 mb-4">
-        <a href="https://x.com/Just_Gleam" target="_blank" rel="noopener noreferrer" className="text-white">
-          <FontAwesomeIcon icon={faTwitter} size="2x" />
-        </a>
-        <a href="https://t.me/justgleam" target="_blank" rel="noopener noreferrer" className="text-white">
-          <FontAwesomeIcon icon={faTelegram} size="2x" />
-        </a>
-      </div>
+   
       <Feedback projectId="67170d3fcc57a800029434b8" />;
       {poo.map((each) => (
         <Maincomponent 
@@ -75,6 +68,15 @@ export default function Home() {
           verified={each.verified}
         />
       ))}
+
+      <div className="flex justify-center items-center space-x-10 mb-4">
+              <a href="https://x.com/Just_Gleam" target="_blank" rel="noopener noreferrer" className="text-white">
+                <FontAwesomeIcon icon={faTwitter} size="2x" />
+              </a>
+              <a href="https://t.me/justgleam" target="_blank" rel="noopener noreferrer" className="text-white">
+                <FontAwesomeIcon icon={faTelegram} size="2x" />
+              </a>
+            </div>
     </div>
   );
 }
