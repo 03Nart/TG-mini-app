@@ -12,7 +12,32 @@ import { FaFire, FaTelegramPlane } from 'react-icons/fa';
 const Feedback = dynamic(() => import("feeder-react-feedback"), {
   ssr: false,
 });
+async function getData() {
+  const res = await fetch("https://d.lazaristcatholicschool.org/items/", { cache: 'no-store' });
+  const data = await res.json();
+  return data;
+}
 
+async function postTelegramId(telegram_id) {
+  try {
+    const response = await fetch('https://d.lazaristcatholicschool.org/user', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ telegram_id }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to post telegram_id');
+    }
+
+    const result = await response.json();
+    console.log('Successfully posted telegram_id:', result);
+  } catch (error) {
+    console.error('Error posting telegram_id:', error);
+  }
+}
 
 export default function Home() {
   const [poo, setPoo] = useState([]);
