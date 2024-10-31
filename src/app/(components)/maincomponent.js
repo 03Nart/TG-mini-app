@@ -3,12 +3,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 const Maincomponent = (params) => {
+  // Function to handle button click and open the link
+  const handleButtonClick = () => {
+    window.open(params.start, "_blank"); // Open the link passed as prop in a new tab
+  };
+
   return (
-    
+    <div className="flex flex-row items-center justify-between rounded-lg bg-gray-900 shadow-lg border-2 border-transparent px-2 py-2">
+      {/* Main link content */}
       <a
         href={params.link}
-        className="flex  flex-row items-center rounded-lg bg-gray-900 shadow-lg border-2 border-transparent px-2 py-2"
-        
+        className="flex items-center"
       >
         <div className="w-12">
           <Image
@@ -34,7 +39,15 @@ const Maincomponent = (params) => {
           </span>
         )}
       </a>
-   
+
+      {/* Open Button */}
+      <button 
+        onClick={handleButtonClick} // Call the function to open the link
+        className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-1 px-4 rounded-md"
+      >
+        Open
+      </button>
+    </div>
   );
 };
 

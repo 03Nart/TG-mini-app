@@ -90,7 +90,7 @@ export default function Page({ params }) {
         {/* Back Button */}
         <button
           onClick={handleButtonClick}
-          className="absolute top-4 left-4 p-2 text-white bg-gray-700 rounded-full shadow-lg focus:outline-none"
+          className="absolute top-4 left-4 p-2 text-white bg-gray-700 rounded-full bg-transparent shadow-lg focus:outline-none"
         >
           <FontAwesomeIcon icon={faChevronLeft} style={{ color: '#ffffff' }} />
         </button>
