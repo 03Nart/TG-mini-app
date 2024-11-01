@@ -5,8 +5,12 @@ import { FaFire, FaTelegramPlane } from 'react-icons/fa';
 
 export default function Feu() {
   return (
-     <div className="p-6 rounded-3xl bg-gray-200 text-grey-900 mx-4 shadow-lg space-y-4">
-    <h2 className="text-2xl font-bold text-purple-400">Solana</h2>
+    <div className='flex w-full pr-3 justify-center items-center'>
+
+  
+  
+     <div className="p-6 w-full rounded-3xl bg-gray-200 text-grey-900 mx-4 shadow-lg space-y-4">
+    <h2 className="text-2xl font-bold text-purple-400">MoonBix</h2>
     <p className="text-sm text-gray-900">Find your luck with mnemonics</p>
     <p className="text-gray-900">Just play with me and earn points for free</p>
 
@@ -19,6 +23,7 @@ export default function Feu() {
         Open
       </button>
     </div>
+  </div>
   </div>
   )
 }

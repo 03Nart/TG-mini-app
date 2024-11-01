@@ -10,12 +10,11 @@ export default function Types() {
         { id: 6, name: 'Telegram', icon: <FaTelegramPlane /> },
         { id: 1, name: 'Web', icon: <FiGlobe /> },
         { id: 2, name: 'App', icon: <FiSmartphone /> },
-        { id: 4, name: 'Hot', icon: <FaFire /> },
-        { id: 5, name: 'Soon', icon: <FiClock /> },
+        
       ];
 
   return (
-    <div className="flex overflow-x-auto py-1 overflow-y-hidden px-2 scrollbar-hidden h-16 items-center flex-shrink-0 space-x-3">
+    <div className="flex overflow-x-auto py-1 w-auto overflow-y-hidden px-2 scrollbar-hidden h-16 items-center flex-shrink-0 space-x-3">
             {types.map((type) => (
               <button
                 key={type.id}
@@ -24,7 +23,7 @@ export default function Types() {
                   ${selectedType === type.id ? 'bg-purple-600 text-white' : 'bg-gray-700 text-gray-300'} 
                   transition duration-200 ease-in-out hover:bg-purple-500 hover:text-white`}
               >
-                <span className={`${selectedType === type.id ? 'text-white' : 'text-gray-300'} text-2xl`}>
+                <span className={`${selectedType === type.id ? 'text-white' : 'text-gray-300'} text-2xl `}>
                   {type.icon}
                 </span>
                 <span className="font-medium">{type.name}</span>
