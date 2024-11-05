@@ -1,19 +1,27 @@
 import Image from "next/image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { isAfter, parseISO ,format} from 'date-fns'; // Import date-fns functions
 
 const Maincomponent = (params) => {
   // Function to handle button click and open the link
   const handleButtonClick = () => {
-    window.open(params.start, "_blank"); // Open the link passed as prop in a new tab
+    if (!isEnded) {
+      window.open(params.start, "_blank"); // Open the link passed as prop in a new tab
+    }
   };
 
-  // Check if the current date is past the params.date
-  const currentDate = new Date();
-  const endDate = new Date(params.date); // Assuming params.date is in a valid date format
-
   // Determine if the event has ended
-  const isEnded = currentDate > endDate; // If currentDate is greater than endDate, the event has ended
+  let isEnded = false;
+
+  if (params.date) {
+    
+    const endDate = format(parseISO(params.date), "yyyy-MM-dd") // Parse the date string into a date object
+    const currentDate = new Date();
+
+    // Check if the current date is after the end date using date-fns
+    isEnded = isAfter(currentDate, endDate);
+  }
 
   return (
     <div className="flex flex-row items-center justify-between rounded-lg bg-transparent shadow-lg border-2 border-transparent px-2 py-2">
