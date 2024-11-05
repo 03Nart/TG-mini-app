@@ -5,15 +5,25 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 const Maincomponent = (params) => {
   // Function to handle button click and open the link
   const handleButtonClick = () => {
-    window.open(params.start, "_blank"); // Open the link passed as prop in a new tab
+    if (!isEnded) {
+      window.open(params.start, "_blank"); // Open the link passed as prop in a new tab
+    }
   };
 
+  // Check if the current date is past the params.date
+  const currentDate = new Date();
+  const endDate = new Date(params.date); // Assuming params.date is in a valid date format
+
+  const isEnded = currentDate > endDate; // Determine if the event has ended
+
   return (
-    <div className="flex flex-row items-center justify-between rounded-lg bg-gray-900 shadow-lg border-2 border-transparent px-2 py-2">
+    <div className="flex flex-row items-center justify-between rounded-lg bg-transparent shadow-lg border-2 border-transparent px-2 py-2">
       {/* Main link content */}
       <a
         href={params.link}
         className="flex items-center"
+        target="_blank" // Open the link in a new tab
+        rel="noopener noreferrer" // Security feature for opening links
       >
         <div className="w-12">
           <Image
@@ -41,12 +51,21 @@ const Maincomponent = (params) => {
       </a>
 
       {/* Open Button */}
-      <button 
-        onClick={handleButtonClick} // Call the function to open the link
-        className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-1 px-4 rounded-md"
-      >
-        Open
-      </button>
+      {isEnded ? (
+        <button 
+          className="bg-red-500 text-white font-semibold py-1 px-4 rounded-md cursor-not-allowed"
+          disabled // Make the button unclickable
+        >
+          Ended
+        </button>
+      ) : (
+        <button 
+          onClick={handleButtonClick} // Call the function to open the link
+          className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-1 px-4 rounded-md"
+        >
+          Open
+        </button>
+      )}
     </div>
   );
 };
