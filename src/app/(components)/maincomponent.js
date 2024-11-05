@@ -5,16 +5,15 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 const Maincomponent = (params) => {
   // Function to handle button click and open the link
   const handleButtonClick = () => {
-    if (!isEnded) {
-      window.open(params.start, "_blank"); // Open the link passed as prop in a new tab
-    }
+    window.open(params.start, "_blank"); // Open the link passed as prop in a new tab
   };
 
   // Check if the current date is past the params.date
   const currentDate = new Date();
   const endDate = new Date(params.date); // Assuming params.date is in a valid date format
 
-  const isEnded = currentDate > endDate; // Determine if the event has ended
+  // Determine if the event has ended
+  const isEnded = currentDate > endDate; // If currentDate is greater than endDate, the event has ended
 
   return (
     <div className="flex flex-row items-center justify-between rounded-lg bg-transparent shadow-lg border-2 border-transparent px-2 py-2">
