@@ -277,8 +277,10 @@ export default function Home() {
                 )}
 
 
+                  {scamss.length > 0 && (
+                    <div>
 
-
+                    
                   <div className="flex items-center justify-between pt-0">
                     <h2 className="text-white text-xl font-extrabold">Scams</h2>
                     <a href="#" className="text-blue-400 text-sm font-semibold">See All</a>
@@ -296,7 +298,9 @@ export default function Home() {
                         verified={each.verified}
                       />
                     ))}
-                  </div>
+                  </div></div>
+                         )}
+
                 </>
               )}
               
