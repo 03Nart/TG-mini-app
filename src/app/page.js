@@ -252,6 +252,33 @@ export default function Home() {
                     ))}
                   </div>
 
+                  {/* ending soon */}
+                  
+                  {endingsoondata.length > 0 && (
+                  <div>
+                    <div className="flex items-center justify-between pt-0">
+                      <h2 className="text-white text-xl font-extrabold">Ending Soon</h2>
+                      <a href="#" className="text-blue-400 text-sm font-semibold">See All</a>
+                    </div>
+                    <div className="flex flex-col space-y-2">
+                      {endingsoondata.map((each) => (
+                        <Maincomponent
+                          date={each.farming_ending_date}
+                          key={each.id}
+                          name={each.name}
+                          start={each.starting_link}
+                          image={each.image}
+                          link={each.id}
+                          verified={each.verified}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+
+
+
                   <div className="flex items-center justify-between pt-0">
                     <h2 className="text-white text-xl font-extrabold">Scams</h2>
                     <a href="#" className="text-blue-400 text-sm font-semibold">See All</a>
