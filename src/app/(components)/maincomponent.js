@@ -29,7 +29,7 @@ const Maincomponent = (params) => {
       <a
         href={params.link}
         className="flex items-center"
-        target="_blank" // Open the link in a new tab
+        // target="_blank" // Open the link in a new tab
         rel="noopener noreferrer" // Security feature for opening links
       >
         <div className="w-12">

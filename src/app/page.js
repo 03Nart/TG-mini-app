@@ -282,7 +282,7 @@ export default function Home() {
                     {filteredItems.map((item) => (
                       <Maincomponent
                       
-                      date={each.farming_ending_date}
+                      date={item.farming_ending_date}
                         key={item.airdrop_id}
                         name={item.name}
                         start={item.starting_link}
