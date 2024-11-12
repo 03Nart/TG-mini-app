@@ -182,7 +182,7 @@ export default function Home() {
                     <a href="#" className="text-blue-400 text-sm font-semibold">See All</a>
                   </div>
                   <div className="flex flex-col space-y-2">
-                    {poo.slice(0, 3).map((each) => (
+                    {details.map((each) => (
                       <Maincomponent
                         key={each.id}
                         name={each.name}
